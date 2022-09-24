@@ -25,9 +25,31 @@ pswd=''
   ngOnInit(): void {
   }
 
-  login(){
-    var acnum=this.acno
-    var psw=this.pswd
+  // login(){
+  //   var acnum=this.acno
+  //   var psw=this.pswd
+  //   let userDetails=this.userDetails
+  //   if(acnum in userDetails){
+  //     if(psw==userDetails[acnum]['password']){
+  //       alert('login success')
+  //     }
+  //     else{
+  //       alert('incorrect password')
+  //     }
+  //   }
+  //   else{
+  //     alert('user not exist or incorrect account number')
+  //   }
+  // }
+
+  login(a:any,b:any){
+  //  console.log(a.value);
+  //  console.log(b.value);
+   
+   
+    
+    var acnum=a.value
+    var psw=b.value
     let userDetails=this.userDetails
     if(acnum in userDetails){
       if(psw==userDetails[acnum]['password']){
@@ -40,18 +62,6 @@ pswd=''
     else{
       alert('user not exist or incorrect account number')
     }
-    alert("login clicked")
-  }
-  acnoChange(event:any){
-    this.acno=event.target.value
-    console.log(this.acno);
-    
-
-  }
-  pswchange(event:any){
-    this.pswd=event.target.value
-    console.log(this.pswd);
-    
   }
 
 }

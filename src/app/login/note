@@ -1,0 +1,20 @@
+data transfer
+
+html to ts
+
+html = view
+ts = component
+
+ie;
+          view to component
+
+1.one by binding(one way binding)
+  1.1. component to view
+    1.1.1. string interpolation  {{}}
+    1.1.2. property binding [property]="value" 
+
+  1.2. view to component
+    1.2.1. event binding (event name)="fuctionname()"  
+    1.2.2. event binding using $event    // how to use:- (event name)="functionname($event)"
+2.two way binding
+      

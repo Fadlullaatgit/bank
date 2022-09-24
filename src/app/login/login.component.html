@@ -1,0 +1,20 @@
+<div class="text-yellow ms-5 p-3"><h5>{{aim}}</h5></div>
+<div class="container">
+    <div class="card border-dark mb-3" style="background:rgb(131, 131, 99,0.5);"><br>
+    <div class="card-header"><h5 class="text-center"><b>Login</b> </h5></div>
+    <div class="card-body text-dark">
+        <div class="mt-2 pt-2">
+      <form action="">
+        <input class="form-control" type="text" [placeholder]="acnt" (change)="acnoChange($event)" id="acid"> <br>
+        <!-- <div class="input-group form-group"><div class="input-group-prepend"><span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+        </div> -->
+        
+       <input class="form-control" type="password" (change)="pswchange($event)" placeholder="Password" id="pid"> 
+       <div class="te"><a href="" class="">Forgot Password <b>?</b></a></div>
+    <!-- </div>   -->
+      </form><br>
+      <button type="button" class="btn btn-success" (click)="login()" >login</button><br>
+    </div>
+   <div class="te"> Don't you have an account?<a href="./create.html" class="text-info">Create</a></div><br>
+  </div></div>
+</div>

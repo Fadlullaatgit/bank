@@ -1,0 +1,29 @@
+.container{
+    position:relative;
+    margin-top: 100px;
+    height: 400px;
+    width: 400px;
+}
+.card{
+    position: absolute;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+.te{
+    font-size: x-small;
+}
+button{
+    /* background-color: rgb(135, 4, 174) ; */
+    color: white;
+    border-radius: 50px;
+    width: 100px;
+    font-size: x-small;
+}
+a{
+    color: rgb(211, 214, 189);
+}
+b{
+    color: rgb(211, 214, 189);
+}

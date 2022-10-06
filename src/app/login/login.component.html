@@ -1,20 +1,25 @@
-<div class="text-yellow ms-5 p-3"><h5>{{aim}}</h5></div>
-<div class="container">
+<div class="text-yellow ms-5 p-3"><br>
+  <h5 class="text-center"><b>{{aim}}</b></h5>
+</div>
+<div class="container ">
+  <form (ngSubmit)="login()">
     <div class="card border-dark mb-3" style="background:rgb(131, 131, 99,0.5);"><br>
-    <div class="card-header"><h5 class="text-center"><b>Login</b> </h5></div>
-    <div class="card-body text-dark">
+      <div class="card-header">
+        <h5 class="text-center"><b>Login</b> </h5>
+      </div>
+      <div class="card-body text-dark">
         <div class="mt-2 pt-2">
-      <form action="">
-        <input class="form-control" type="text" [placeholder]="acnt" #acno id="acid"> <br>
-        <!-- <div class="input-group form-group"><div class="input-group-prepend"><span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
-        </div> -->
-        
-       <input class="form-control" type="password" #psw placeholder="Password" id="pid"> 
-       <div class="te"><a href="" class="">Forgot Password <b>?</b></a></div>
-    <!-- </div>   -->
-      </form><br>
-      <button type="button" class="btn btn-success" (click)="login(acno,psw)" >login</button><br>
+            <input name="acno" class="form-control" type="text" [placeholder]="acnt" [(ngModel)]="acno" id="acid"> <br>
+
+            <input name="psw" class="form-control" type="password" [(ngModel)]="pswd" placeholder="Password" id="pid">
+            <div class="te"><a href="" class="">Forgot Password <b>?</b></a></div>
+            <!-- </div>   -->
+         <br>
+          <button type="submit" class="btn btn-success">login</button><br>
+        </div>
+        <div class="te"> Don't you have an account?<a href="" routerLink="register" class="text-info">Register</a></div>
+        <br>
+      </div>
     </div>
-   <div class="te"> Don't you have an account?<a href="./create.html" class="text-info">Create</a></div><br>
-  </div></div>
+  </form>
 </div>

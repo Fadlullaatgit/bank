@@ -20,4 +20,20 @@ ie;
 
 
 2.two way binding
-  2.1.    
+  2.1.ngModel  FormsModule
+
+
+  //redirection
+-----------------
+method:= navigateByUrl     (Router class method)
+
+//dependency injection : a class in another class  (data sharing is processing between these two classes)
+//the new class is add on constructer()
+//access specifier:- private for a specific one (add 'private' previously to the router  eg.constructer(private router:Router))
+
+
+angular services
+----------------
+to store redendent datas (duplicate dats)
+
+ng g s service_name

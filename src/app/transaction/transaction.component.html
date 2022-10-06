@@ -1,0 +1,37 @@
+<!-- table -->
+<!-- '*ngFor' (structural directive) can apply directly in html to access datas from array -->
+<div class="container"><br>
+    <h2 class="text-center text-white">Transaction history</h2>
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <table class="border border-white w-50 container text-center">
+                <thead>
+                    <tr class="border border-white text-white">
+                        <td class="border border-white">Type</td>
+                        <td class="border border-white">Amount</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of transaction" class="border border-white text-white">
+                        <td class="border border-white">{{i.type}}</td>
+                        <td class="border border-white">{{i.amount}}</td>
+                    </tr>
+                </tbody>
+            </table><br><div class=" bg-dark text-center" style="height: 50px; width: 300px; border-radius: 10px; align-items: center;">
+            <a routerLink="/dashboard">Home</a></div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+<!-- transaction history=heading -->
+<!-- 1.type  && 2. amount -->
+
+<!-- credit                          --      amount -->
+
+<!-- debit                           --      amount -->
+
+
+<!-- homepage (go to dashboard)-->

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -7,27 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  aim='your perfect banking partner'
+  aim='Perfect Banking Partner'
   acnt='enter your account number'
 
 acno=''
-pswd=''
+pswd=''                          //only in ngModel : put the same value as from the( [(ngModel)]="" )html
 
-  userDetails:any={
-    1000:{acno:1000,username:"amal",password:123,balance:100000},
-    1001:{acno:1001,username:"anu",password:123,balance:200000},
-    1002:{acno:1002,username:"joyal",password:123,balance:150000},
-    1003:{acno:1003,username:"anaga",password:123,balance:100000},
-  }
+constructor(private router:Router,private ds:DataService){}
 
-  constructor() { }
 
   ngOnInit(): void {
   }
 
-  // login(){
-  //   var acnum=this.acno
-  //   var psw=this.pswd
+  login(){
+    var acnum=this.acno
+    var psw=this.pswd
+
+    const result=this.ds.login(acnum,psw)
+    if(result){
+      alert('Login success')
+      this.router.navigateByUrl('dashboard')
+    }
+
+  }
+
+  // login(a:any,b:any){
+  // //  console.log(a.value);
+  // //  console.log(b.value);
+   
+   
+    
+  //   var acnum=a.value
+  //   var psw=b.value
   //   let userDetails=this.userDetails
   //   if(acnum in userDetails){
   //     if(psw==userDetails[acnum]['password']){
@@ -41,27 +54,5 @@ pswd=''
   //     alert('user not exist or incorrect account number')
   //   }
   // }
-
-  login(a:any,b:any){
-  //  console.log(a.value);
-  //  console.log(b.value);
-   
-   
-    
-    var acnum=a.value
-    var psw=b.value
-    let userDetails=this.userDetails
-    if(acnum in userDetails){
-      if(psw==userDetails[acnum]['password']){
-        alert('login success')
-      }
-      else{
-        alert('incorrect password')
-      }
-    }
-    else{
-      alert('user not exist or incorrect account number')
-    }
-  }
 
 }

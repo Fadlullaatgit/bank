@@ -37,3 +37,35 @@ angular services
 to store redendent datas (duplicate dats)
 
 ng g s service_name
+
+---------------------------------------------------------------------------------------
+
+validating inputs
+
+*Angular form validation
+      1.template driven form   (html)
+      2.model driven form      (ts)                  //easy to validate (use this method) (in validator class)
+            2.1-Reactive form
+                -form group
+                -array
+                -controller
+
+                // in regular expression 
+                1.rules in [] or not in[]
+                quantifiers==
+                +(min 1 value & max infinite)
+                *(0 too accepted)
+
+  ----------------------------------
+  LOCALSTORAGE in angular--
+    -setItem()
+    -getItem()
+    -removeItem()
+
+to create http request
+-import HttpClientModule
+    -class name HttpClient
+
+api request is a asynchronous request to solve assynchronous request
+in ts we use RxJs method ...observable ...resolve...and subscribe()
+                          (js promise) ...reject...catch()

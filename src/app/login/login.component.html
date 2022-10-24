@@ -2,19 +2,30 @@
   <h5 class="text-center"><b>{{aim}}</b></h5>
 </div>
 <div class="container ">
-  <form (ngSubmit)="login()">
+  <form (ngSubmit)="login()" [formGroup]="loginForm">
     <div class="card border-dark mb-3" style="background:rgb(131, 131, 99,0.5);"><br>
       <div class="card-header">
         <h5 class="text-center"><b>Login</b> </h5>
       </div>
       <div class="card-body text-dark">
         <div class="mt-2 pt-2">
-            <input name="acno" class="form-control" type="text" [placeholder]="acnt" [(ngModel)]="acno" id="acid"> <br>
+          <input formControlName="acno" name="acno" class="form-control" type="text" [placeholder]="acnt" id="acid">
+          <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched" class="text-danger">
+            <p>Invalid Account number</p>
+          </div>
+          <br>
 
-            <input name="psw" class="form-control" type="password" [(ngModel)]="pswd" placeholder="Password" id="pid">
-            <div class="te"><a href="" class="">Forgot Password <b>?</b></a></div>
-            <!-- </div>   -->
-         <br>
+
+          <input formControlName="pswd" name="pswd" class="form-control" type="password" placeholder="Password"
+            id="pid">
+          <div *ngIf="this.loginForm.get('pswd')?.errors&&this.loginForm.get('pswd')?.touched" class="text-danger">
+            <p>Invalid Password</p>
+          </div>
+          <br>
+
+          <div class="te"><a href="" class="">Forgot Password <b>?</b></a></div>
+          <!-- </div>   -->
+          <br>
           <button type="submit" class="btn btn-success">login</button><br>
         </div>
         <div class="te"> Don't you have an account?<a href="" routerLink="register" class="text-info">Register</a></div>

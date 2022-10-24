@@ -1,27 +1,47 @@
+<div>
+    <h3 class="text-white ms-3 ps-5 pe-5">System Date and Time {{sDetails | date:'short'}}</h3>
+</div>
 <div class="pe-5 ps-5 mt-3 ms-3">
     <h3 class="text-center">Welcome {{user}}!!</h3>
 </div>
-<div class="row">
-    
+<app-delete-confirm (onCancel)="oncancel()" (onDelete)="onDelete($event)" [item]="accnum"> </app-delete-confirm>
     <div class="container p-5">
-        <div class="row">
+        <div class="row w-100">
             <div class="col-1">
             </div>
             <div class="col-lg-5 col-sm-10">
-                <form (ngSubmit)="deposit()">
+
+                 <form [ngClass]="accnum?'style1':''" (ngSubmit)="deposit()" [formGroup]="depositForm"> <!-- ngClass is for calling a class like if and else case -->
                     <div class="card border-dark mb-3" style="background:rgb(131, 131, 99,0.5);"><br>
                         <div class="card-header">
                             <h5 class="text-center"><b>Cash Deposit</b> </h5>
                         </div>
                         <div class="card-body text-dark">
                             <div class="mt-2 pt-2">
-                                <input name="acnumber" class="form-control" type="text" placeholder="account number"
-                                    [(ngModel)]="acnum" id="acno"> <br>
+                                <input formControlName="acnum" name="acnumber" class="form-control" type="text"
+                                    placeholder="account number" id="acno">
+                                <div *ngIf="this.depositForm.get('acnum')?.errors&&this.depositForm.get('acnum')?.touched"
+                                    class="text-danger">
+                                    <p>Invalid Account number</p>
+                                </div>
+                                <br>
 
-                                <input name="password" class="form-control" type="password" [(ngModel)]="pswrd"
-                                    placeholder="Password" id="psw"><br>
-                                <input name="amount" class="form-control" type="text" placeholder="amount to deposit"
-                                    [(ngModel)]="amnt" id="amt">
+
+                                <input formControlName="pswrd" name="password" class="form-control" type="password"
+                                    placeholder="Password" id="psw">
+                                <div *ngIf="this.depositForm.get('pswrd')?.errors&&this.depositForm.get('pswrd')?.touched"
+                                    class="text-danger">
+                                    <p>Incorrect Password</p>
+                                </div>
+                                <br>
+
+                                <input formControlName="amnt" name="amount" class="form-control" type="text"
+                                    placeholder="amount to deposit" id="amt">
+                                <div *ngIf="this.depositForm.get('amnt')?.errors&&this.depositForm.get('amnt')?.touched"
+                                    class="text-danger">
+                                    <p>Invalid Value</p>
+                                </div>
+
                                 <!-- </div>   -->
                                 <br>
                                 <div class="text-center mt-2 p-2">
@@ -33,20 +53,37 @@
                 </form>
             </div>
             <div class="col-lg-5 col-sm-10">
-                <form (ngSubmit)="withdraw()">
+                <form (ngSubmit)="withdraw()" [formGroup]="withdrawalForm">
                     <div class="card border-dark mb-3" style="background:rgb(131, 131, 99,0.5);"><br>
                         <div class="card-header">
                             <h5 class="text-center"><b>Cash Withdrawal</b> </h5>
                         </div>
                         <div class="card-body text-dark">
                             <div class="mt-2 pt-2">
-                                <input name="acnumber1" class="form-control" type="text" placeholder="account number"
-                                    [(ngModel)]="acnum1" id="acno1"> <br>
+                                <input formControlName="acnum1" name="acnumber1" class="form-control" type="text"
+                                    placeholder="account number" id="acno1">
+                                <div *ngIf="this.withdrawalForm.get('acnum1')?.errors&&this.withdrawalForm.get('acnum1')?.touched"
+                                    class="text-danger">
+                                    <p>Invalid Account number</p>
+                                </div>
+                                <br>
 
-                                <input name="password1" class="form-control" type="password" [(ngModel)]="pswrd1"
-                                    placeholder="Password" id="psw1"><br>
-                                <input name="amount1" class="form-control" type="text" placeholder="withdarwal amount"
-                                    [(ngModel)]="amnt1" id="amt1">
+
+                                <input formControlName="pswrd1" name="password1" class="form-control" type="password"
+                                    placeholder="Password" id="psw1">
+                                <div *ngIf="this.withdrawalForm.get('pswrd1')?.errors&&this.withdrawalForm.get('pswrd1')?.touched"
+                                    class="text-danger">
+                                    <p>Incorrect Password</p>
+                                </div>
+                                <br>
+
+                                <input formControlName="amnt1" name="amount1" class="form-control" type="text"
+                                    placeholder="withdarwal amount" id="amt1">
+                                <div *ngIf="this.withdrawalForm.get('amnt1')?.errors&&this.withdrawalForm.get('amnt1')?.touched"
+                                    class="text-danger">
+                                    <p>Invalid Value</p>
+                                </div>
+
                                 <!-- </div>   -->
                                 <br>
                                 <div class="text-center mt-2 p-2">
@@ -61,8 +98,17 @@
             <div class="col-1"></div>
         </div>
     </div>
-    <div class=" ms-3 pe-5 ps-5  bg-dark text-center"
-        style="height: 50px; width: 300px; border-radius: 10px; align-items: center;">
-        <a routerLink="/transaction">view transaction history</a>
+    <div class="row w-100">
+        <div class="col-6">
+            <div class=" ms-3 pe-5 ps-5  bg-dark text-center"
+                style="height: 50px; width: 300px; border-radius: 10px; align-items: center;">
+                <a routerLink="/transaction">view transaction history</a>
+            </div>
+        </div>
+        <div class="col-3">
+            <button (click)="deleteconfirm()" class="btn btn-danger">Delete</button>
+        </div>
+        <div class="col-3">
+            <button (click)="logout()" class="btn btn-info">logout</button>
+        </div>
     </div>
-</div>
